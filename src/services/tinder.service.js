@@ -12,6 +12,11 @@ const getUri = (uri) => {
 }
 const tinderService = {
 
+    async requestSMS(phoneNumber) {
+        const { data } = await axios.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=pt-BR', { phone_number: phoneNumber });
+        console.log(data);
+    },
+
     async getTeasers() {
         const { data } = await axios.get('https://api.gotinder.com/v2/fast-match/teasers', { headers: { 'x-auth-token': token }});
         const listOfPeople = data.data.results;
