@@ -12,6 +12,9 @@ const getUri = (uri) => {
 }
 const tinderService = {
 
+    // POST https://api.gotinder.com/v2/auth/sms/validate?auth_type=sms&locale=pt-BR endpoint para validar codigo
+    // dados do request: {"otp_code":"302427","phone_number":"5569992219034","is_update":false}
+
     async requestSMS(phoneNumber) {
         const { data } = await axios.post('https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=pt-BR', { phone_number: phoneNumber });
         console.log(data);
